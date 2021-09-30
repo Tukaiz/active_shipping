@@ -3,41 +3,23 @@ script: bundle exec rake test
 sudo: false
 
 rvm:
-- "2.0"
-- "2.1"
 - "2.2.2"
 - "2.3.1"
+- "2.4.1"
 
 gemfile:
-- gemfiles/activesupport32.gemfile
-- gemfiles/activesupport32_nokogiri_17.gemfile
-- gemfiles/activesupport40.gemfile
-- gemfiles/activesupport40_nokogiri_17.gemfile
-- gemfiles/activesupport41.gemfile
-- gemfiles/activesupport41_nokogiri_17.gemfile
 - gemfiles/activesupport42.gemfile
-- gemfiles/activesupport42_nokogiri_17.gemfile
 - gemfiles/activesupport50.gemfile
-- gemfiles/activesupport_master.gemfile
+- gemfiles/activesupport51.gemfile
+- gemfiles/activesupport52.gemfile
 
 matrix:
+  include:
+    - rvm: "2.4.1"
+      gemfile: gemfiles/active_support.gemfile
   exclude:
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport32_nokogiri_17.gemfile
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport40_nokogiri_17.gemfile
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport41_nokogiri_17.gemfile
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport42_nokogiri_17.gemfile
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport50.gemfile
-    - rvm: "2.0"
-      gemfile: gemfiles/activesupport_master.gemfile
-    - rvm: "2.1"
-      gemfile: gemfiles/activesupport50.gemfile
-    - rvm: "2.1"
-      gemfile: gemfiles/activesupport_master.gemfile
+    - rvm: "2.4.1"
+      gemfile: gemfiles/activesupport42.gemfile
 
 env:
   global:
